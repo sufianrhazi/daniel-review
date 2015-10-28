@@ -8,14 +8,14 @@ var getElementsByClassName = function (className) {
     var results = [];
 
     function recursion(input) {
-        for (var i = 0; i < input.childNodes.length; i++) {
-            if (input.childNodes[i].nodeType === 1) {
-                if (hasClass(input.childNodes[i])) {
-                    results.push(input.childNodes[i]);
+        Array.prototype.forEach.call(input.childNodes, function (childNode) {
+            if (childNode.nodeType === 1) {
+                if (hasClass(childNode)) {
+                    results.push(childNode);
                 }
                 recursion(input.childNodes[i]);
             }
-        }
+        });
     }
     recursion(document);
 
