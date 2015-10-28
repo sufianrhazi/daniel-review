@@ -1,11 +1,7 @@
 var hasClass = function (element, className) {
-    var isFound = false;
-    Array.prototype.forEach.call(childNode.classList, function (childNodeClassName) {
-        if (childNodeClassName === className) {
-            isFound = true;
-        }
+    return Array.prototype.some.call(childNode.classList, function (childNodeClassName) {
+        return childNodeClassName === className;
     });
-    return isFound;
 };
 
 var getElementsByClassName = function (className) {
