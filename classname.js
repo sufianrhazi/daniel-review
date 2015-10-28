@@ -1,6 +1,5 @@
 var getElementsByClassName = function (className) {
     var allNodesList = [];
-    var positiveNodes = [];
     var results = [];
 
     function recursion(input) {
