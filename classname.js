@@ -9,12 +9,10 @@ var getElementsByClassName = function (className) {
 
     function recursion(input) {
         Array.prototype.forEach.call(input.childNodes, function (childNode) {
-            if (childNode.nodeType === 1) {
-                if (hasClass(childNode)) {
-                    results.push(childNode);
-                }
-                recursion(input.childNodes[i]);
+            if (childNode.nodeType === 1 && hasClass(childNode)) {
+                results.push(childNode);
             }
+            recursion(input.childNodes[i]);
         });
     }
     recursion(document);
