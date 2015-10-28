@@ -1,5 +1,4 @@
 var getElementsByClassName = function (className) {
-    var allNodesList = [];
     var results = [];
 
     function recursion(input) {
