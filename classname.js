@@ -15,7 +15,7 @@ var getElementsByClassName = function (className) {
     recursion(document);
 
     allNodesList.forEach(function (positiveNode) {
-        positiveNode.classList.forEach(function (matchingNode) {
+        Array.prototype.forEach.call(positiveNode.classList, function (matchingNode) {
             if (matchingNode === className) {
                 results.push(positiveNode);
             }
