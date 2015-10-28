@@ -4,10 +4,10 @@ var getElementsByClassName = function (className) {
     function recursion(input) {
         for (var i = 0; i < input.childNodes.length; i++) {
             if (input.childNodes[i].nodeType === 1) {
-                var positiveNode = input.childNodes[i];
-                Array.prototype.forEach.call(positiveNode.classList, function (matchingNode) {
-                    if (matchingNode === className) {
-                        results.push(positiveNode);
+                var childNode = input.childNodes[i];
+                Array.prototype.forEach.call(childNode.classList, function (childNodeClassName) {
+                    if (childNodeClassName === className) {
+                        results.push(childNode);
                     }
                 });
                 recursion(input.childNodes[i]);
