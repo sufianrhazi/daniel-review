@@ -5,19 +5,17 @@ var getElementsByClassName = function (className) {
     function recursion(input) {
         for (var i = 0; i < input.childNodes.length; i++) {
             if (input.childNodes[i].nodeType === 1) {
-                allNodesList.push(input.childNodes[i]);
+                var positiveNode = input.childNodes[i];
+                Array.prototype.forEach.call(positiveNode.classList, function (matchingNode) {
+                    if (matchingNode === className) {
+                        results.push(positiveNode);
+                    }
+                });
                 recursion(input.childNodes[i]);
             }
         }
     }
     recursion(document);
 
-    allNodesList.forEach(function (positiveNode) {
-        Array.prototype.forEach.call(positiveNode.classList, function (matchingNode) {
-            if (matchingNode === className) {
-                results.push(positiveNode);
-            }
-        });
-    });
     return results;
 };
