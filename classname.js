@@ -3,12 +3,10 @@ var getElementsByClassName = function (className) {
     var results = [];
 
     function recursion(input) {
-        if (input.childNodes.length > 0) {
-            for (var i = 0; i < input.childNodes.length; i++) {
-                if (input.childNodes[i].nodeType === 1) {
-                    allNodesList.push(input.childNodes[i]);
-                    recursion(input.childNodes[i]);
-                }
+        for (var i = 0; i < input.childNodes.length; i++) {
+            if (input.childNodes[i].nodeType === 1) {
+                allNodesList.push(input.childNodes[i]);
+                recursion(input.childNodes[i]);
             }
         }
     }
